@@ -41,7 +41,7 @@ public final class ShapesReader extends SimplePreparableReloadListener<Void> {
                 String path = fileLoc.getPath();
                 String name = path.substring(0, path.length() - 5);
 
-                ResourceLocation publicId = new ResourceLocation(ShaperAPI.NAMESPACE, name);
+                ResourceLocation publicId = ResourceLocation.fromNamespaceAndPath(ShaperAPI.NAMESPACE, name);
                 ShaperAPI.put(publicId, shape);
             } catch (Exception ex) {
                 ex.printStackTrace();

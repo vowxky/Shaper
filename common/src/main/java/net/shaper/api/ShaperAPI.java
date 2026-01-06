@@ -17,7 +17,7 @@ public final class ShaperAPI {
     private ShaperAPI() {}
 
     public static VoxelShape get(String name) {
-        ResourceLocation id = new ResourceLocation(NAMESPACE, name);
+        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(NAMESPACE, name);
         return CACHE.getOrDefault(id, Shapes.empty());
     }
 
@@ -30,7 +30,7 @@ public final class ShaperAPI {
     public static void putFromJson(String name, JsonElement json) {
         if (!json.isJsonArray()) return;
         VoxelShape shape = parseBoxes(json.getAsJsonArray());
-        ResourceLocation id = new ResourceLocation(NAMESPACE, name);
+        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(NAMESPACE, name);
         CACHE.put(id, shape);
     }
 

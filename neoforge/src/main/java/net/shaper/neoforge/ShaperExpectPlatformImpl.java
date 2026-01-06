@@ -1,11 +1,11 @@
-package net.shaper.fabric;
+package net.shaper.neoforge;
 
-import org.quiltmc.loader.api.QuiltLoader;
+import net.neoforged.fml.loading.FMLPaths;
 
 import java.nio.file.Path;
 
 public class ShaperExpectPlatformImpl {
     public static Path getConfigDirectory() {
-        return QuiltLoader.getConfigDir();
+        return FMLPaths.CONFIGDIR.get();
     }
 }
